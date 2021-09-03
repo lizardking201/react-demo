@@ -1,0 +1,270 @@
+@import './colors.scss';
+
+// Components
+@import './authentication.scss';
+@import './comments.scss';
+@import './header.scss';
+
+.ui.form .field.field {
+	input:-webkit-autofill, input::selection, input:active:-webkit-autofill, input:focus:-webkit-autofill {
+		background: $invertedBackgroundColor !important;
+		background-color: $invertedBackgroundColor !important;
+		border: solid 1px $white!important;
+		outline: none !important;
+		-webkit-box-shadow: 0 0 0 50px $invertedBackgroundColor inset !important;
+		-webkit-text-fill-color: $white !important;
+	}
+}
+
+body {
+	background: $invertedBackgroundColor;
+	height: 100%;
+	margin: 0;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	padding: 0;
+	-webkit-overflow-scrolling: touch;
+	width: 100%;
+}
+
+.body {
+	&.inverted {
+		background: $invertedBackgroundColor;
+	}
+}
+
+.segment.inverted {
+	background: lighten($invertedBackgroundColor, 4%) !important;
+
+	&.uploadSegment, &.authSegment {
+		background: $invertedBackgroundColor !important;
+	}
+
+	&.uploadSegment {
+		@media only screen and (max-width: 1025px) {
+			padding: 0 !important;
+		}
+	}
+
+	&.uploadSegment {
+		padding: 0 !important;
+	}
+}
+
+.errorMsgContainer {
+	height: 300px;
+	position: relative;
+	width: 100%;
+
+	.ui.header {
+		margin: 0;
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+
+		.ui.button {
+			margin-top: 18px;
+		}
+	}
+}
+
+.mainContainer {
+	margin-top: 5.1em;
+	min-height: 100vh;
+	padding: 20px 3px;
+
+	&.inverted {
+		background: $invertedBackgroundColor;
+
+		a {
+			color: $lightGrey;
+
+			&:hover {
+				color: $lightGrey !important;
+			}
+		}
+	}
+
+	.dimmer.pageDimmer {
+		align-items: center;
+		background: $invertedBackgroundColor;
+		display: flex;
+	}
+
+	@media only screen and (max-width: 768px) {
+		&.ui.container {
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+		}
+	}
+
+	@media only screen and (max-width: 1025px) {
+		&.ui.container {
+			margin-left: auto !important;
+			margin-right: auto !important;
+		}
+	}
+
+	.addButton {
+		float: right;
+		margin-right: 0;
+	}
+
+	.grid.mainGrid {
+		.column.four.leftColumn {
+			padding-left: 0;
+
+			@media only screen and (max-width: 1025px) {
+				display: none;
+			}
+		}
+
+		.column.twelve.rightColumn {
+			@media only screen and (max-width: 1025px) {
+				.ui.grid.stackable {
+					// margin-left: 0 !important;
+					margin-right: 0 !important;
+				}
+
+				width: 100% !important;
+			}
+		}
+	}
+}
+
+.gridList {
+	margin-top: 8px !important;
+
+	&.inverted {
+		.item {
+			color: $white;
+
+			&.active {
+				border-bottom: solid 1px $white;
+			}
+		}
+	}
+
+	.item {
+		cursor: pointer;
+	}
+}
+
+.input:not(.autocomplete), .dropdown.selection {
+	.dropdown.icon, .search.icon {
+		color: $white !important;
+	}
+}
+
+:not(.autocomplete1) > input, textarea, .dropdown.selection {
+	background-color: transparent !important;
+	border: solid 1px rgba(255,255,255,0.4) !important;
+	caret-color: $white;
+	color: $white !important;
+	outline: none !important;
+}
+
+.ui.active.visible.search.selection.dropdown {
+	.menu.visible.transition {
+		background: $invertedBackgroundColor;
+		border: solid 1px rgba(255, 255, 255, 0.4) !important;
+		max-height: 260px;
+
+		.message {
+			color: $white !important;
+		}
+
+		&.upward {
+			border-bottom: none !important;
+		}
+
+		.item {
+			background: $invertedBackgroundColor;
+			border: none !important;
+			color: $white;
+			font-size: 18px !important;
+			padding: 16px 21px !important;
+
+			&:hover {
+				background: darken($invertedBackgroundColor, 1%);
+			}
+		}
+	}
+}
+
+.ui.upward.selection.dropdown.visible {
+	border-radius: 0 !important;
+}
+
+.signInPage {
+	margin-top: 5em;
+	padding-top: 25px !important;
+	width: 100% !important;
+
+	@media only screen and (max-width: 1025px) {
+		&.ui.container {
+			margin: 0 !important;
+		}
+	}
+}
+
+.usersPage, .postsPage {
+	.container {
+		margin-top: 15px;
+	}
+
+	.items {
+		.item {
+			.content {
+				.header, .meta, .description, .extra {
+					color: $white !important;
+				}
+			}
+		}
+	}
+}
+
+.ui.segment.videoInputSegment {
+	background: $invertedBackgroundColor !important;
+	padding: 0 !important;
+}
+
+.Toastify__toast-container--bottom-left .Toastify__toast-body {
+	color: $white;
+	font-size: 16px;
+    text-align: center;
+}
+
+.Toastify__toast--success {
+	background: $orange;
+	border-radius: 4px;
+}
+
+.Toastify__toast--error {
+	background: $red;
+	border-radius: 4px;
+}
+
+@media only screen and (max-width: 1025px) {
+	.pageDimmer {
+		.loader {
+			margin-top: 160px;
+		}
+	}
+}
+
+.ui.placeholder {
+	border-radius: 4px;
+}
+
+.clickHeader {
+	cursor: pointer;
+	margin-bottom: 0;
+	overflow-x: hidden;
+	white-space: pre !important;
+
+	&:not(:first-of-type) {
+		margin-top: 5px !important;
+	}
+}

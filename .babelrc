@@ -1,0 +1,44 @@
+{
+	"presets": [
+		[
+			"next/babel",
+			{
+				"preset-env": {
+					"useBuiltIns": "usage",
+					"corejs": "3.6"
+				}
+			}
+		],
+	],
+	"plugins": [
+		"@babel/plugin-proposal-do-expressions",
+		"@babel/plugin-transform-runtime",
+		[
+			"module-resolver",
+			{
+				"root": ["./"],
+				"alias": {
+					"@components": "./components",
+					"@controllers": "./controllers",
+					"@dummy": "./dummy",
+					"@layouts": "./layouts",
+					"@lib": "./lib",
+					"@models": "./models",
+					"@options": "./options",
+					"@public": "./public",
+					"@reducers": "./reducers",
+					"@static": "./static",
+					"@style": "./style",
+					"@sagas": "./sagas",
+					"@utils": "./utils"
+				},
+				"extensions": [".js", ".jsx"]
+			}
+		]
+	],
+	"env": {
+		"test": {
+			"presets": [["@babel/preset-env", { "modules": false } ], "next/babel"]
+		}
+	}
+}
