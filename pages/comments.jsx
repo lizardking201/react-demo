@@ -78,6 +78,7 @@ const Comments = () => {
     return (
         <DefaultLayout activeItem="comments" containerClassName="commentsPage">
             <Container>
+                <Header as="h1" content="Browse Comments" inverted />
                 <div className="ui labeled input fluid large inverted">
                     <DebounceInput
                         debounceTimeout={800}
@@ -97,7 +98,7 @@ const Comments = () => {
                         }
                     }}
                 >
-                    <Item.Group link>
+                    <Item.Group divided link relaxed="very">
                         {results.map((item, i) => {
                             const img = images[Math.floor(Math.random() * images.length)]
 
