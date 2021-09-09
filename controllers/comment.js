@@ -38,6 +38,7 @@ exports.findAll = async (req, res) => {
     }
 
     let attributes = [
+        [db.Sequelize.col("comment.id"), "id"],
         [db.Sequelize.col("comment.message"), "message"],
 
         [db.Sequelize.col("user.id"), "userId"],

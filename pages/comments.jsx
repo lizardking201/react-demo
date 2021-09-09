@@ -1,4 +1,4 @@
-import { Container, Divider, Header, Item, Placeholder, Visibility } from "semantic-ui-react"
+import { Container, Divider, Header, Item, Label, Placeholder, Visibility } from "semantic-ui-react"
 import { toast } from "react-toastify"
 import { images } from "options/images"
 import { getConfig } from "options/toast"
@@ -83,7 +83,7 @@ const Comments = () => {
                         debounceTimeout={800}
                         minLength={2}
                         onChange={onChangeQ}
-                        placeholder="Search users"
+                        placeholder="Search comments"
                         value={q}
                     />
                 </div>
@@ -104,11 +104,6 @@ const Comments = () => {
                             if (loading) {
                                 return (
                                     <Item key={`userItem${i}`}>
-                                        <Placeholder inverted style={{ marginRight: 12 }}>
-                                            <Placeholder.Image
-                                                style={{ height: 150, width: 150 }}
-                                            />
-                                        </Placeholder>
                                         <Item.Content>
                                             <Placeholder inverted fluid>
                                                 <Placeholder.Paragraph>
@@ -124,16 +119,20 @@ const Comments = () => {
 
                             return (
                                 <Item
-                                    key={`userItem${i}`}
-                                    onClick={() => router.push(`/users/${item.username}`)}
+                                    key={`commentItem${i}`}
+                                    onClick={() => router.push(`/comment/${item.id}`)}
                                 >
-                                    <Item.Image size="tiny" src={`/images/avatar/large/${img}`} />
                                     <Item.Content>
-                                        <Item.Header>{item.name}</Item.Header>
-                                        <Item.Meta>
-                                            <span className="price">@{item.username}</span>
-                                        </Item.Meta>
-                                        <Item.Description>{item.bio}</Item.Description>
+                                        <Item.Header>Comment #{item.id}</Item.Header>
+                                        <Item.Meta>{item.likeCount} likes</Item.Meta>
+                                        <Item.Description>{item.message}</Item.Description>
+                                        <Item.Extra>
+                                            <Label icon="user" content={item.userName} />
+                                            <Label
+                                                icon="comment"
+                                                content={`On Post -> ${item.postTitle}`}
+                                            />
+                                        </Item.Extra>
                                     </Item.Content>
                                 </Item>
                             )
@@ -154,11 +153,14 @@ Comments.propTypes = {
     page: PropTypes.number,
     results: PropTypes.arrayOf(
         PropTypes.shape({
-            createdAt: PropTypes.string,
-            email: PropTypes.string,
-            emailVerified: PropTypes.number,
-            name: PropTypes.number,
-            username: PropTypes.string
+            id: PropTypes.number,
+            likeCount: PropTypes.number,
+            message: PropTypes.string,
+            postDescription: PropTypes.string,
+            postId: PropTypes.number,
+            postTitle: PropTypes.string,
+            userId: PropTypes.number,
+            userName: PropTypes.name
         })
     )
 }
