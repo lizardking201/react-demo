@@ -6,8 +6,10 @@ import { useRouter } from "next/router"
 import { DebounceInput } from "react-debounce-input"
 import axios from "axios"
 import DefaultLayout from "layouts/default"
+import initialState from "states/comments"
 import PropTypes from "prop-types"
 import React, { useEffect, useState } from "react"
+import reducer from "reducers/comments"
 import useLogReducer from "reducer-logger"
 
 const toastConfig = getConfig()
@@ -22,7 +24,8 @@ const Comments = () => {
     const [page, setPage] = useState(1)
     const [q, setQ] = useState("")
 
-    const results = []
+    const [internalState, dispatch] = useLogReducer(reducer, initialState)
+    const { error, results } = internalState
 
     useEffect(() => {
         getComments(q, "name", "desc")
@@ -46,6 +49,10 @@ const Comments = () => {
             })
             .then((response) => {
                 const { data } = response
+                dispatch({
+                    type: "GET_COMMENTS",
+                    payload: data
+                })
                 setPage(data.page)
                 setHasMore(data.hasMore)
                 if (page === 0) {
@@ -56,6 +63,10 @@ const Comments = () => {
             })
             .catch((error) => {
                 toast.error(error.response.data.msg)
+                dispatch({
+                    type: "SET_COMMENTS_ERROR",
+                    payload: error.response.data.msg
+                })
             })
     }
 
