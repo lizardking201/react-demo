@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": "password",
-    "database": "lecture",
-    "host": "0.0.0.0",
+    "username": "thisisatest201",
+    "password": "363ac4da",
+    "database": "lecture_mysql",
+    "host": "db4free.net",
     "dialect": "mysql",
     "pool": {
       "max": 5,
@@ -12,10 +12,10 @@
     }
   },
   "test": {
-    "username": "root",
-    "password": "",
-    "database": "",
-    "host": "0.0.0.0",
+    "username": "thisisatest201",
+    "password": "363ac4da",
+    "database": "lecture_mysql",
+    "host": "db4free.net",
     "dialect": "mysql",
     "pool": {
       "max": 5,
@@ -24,10 +24,10 @@
     }
   },
   "production": {
-    "username": "root",
-    "password": "",
-    "database": "",
-    "host": "0.0.0.0",
+    "username": "thisisatest201",
+    "password": "363ac4da",
+    "database": "lecture_mysql",
+    "host": "db4free.net",
     "dialect": "mysql",
     "pool": {
       "max": 5,
