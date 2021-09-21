@@ -8,7 +8,8 @@
     "dev:prod": "NODE_ENV=production node server.js",
     "build": "NODE_ENV=production next build",
     "lint": "eslint '*/**/*.{js,jsx}' --fix . && echo 'Lint complete.'",
-    "prettify": "prettier --config ./.prettierrc --write '{components,lib,pages,reducers,states,utils}/**/*.jsx'"
+    "prettify": "prettier --config ./.prettierrc --write '{components,lib,pages,reducers,states,utils}/**/*.jsx'",
+    "postinstall": "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
   },
   "dependencies": {
     "@babel/runtime": "^7.10.3",
